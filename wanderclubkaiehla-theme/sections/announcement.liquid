@@ -1,0 +1,19 @@
+<div class="w-100-vw bg-primary text-white d-flex justify-content-center">
+  {{ settings.announcement_text }}
+  LABOR DAY B.O.G.O. SALE! ENDS IN: 03 DAYS 00 HRS 40 MIN 31 SEC
+   <a class="text-white fw-bold" href="#">Shop Now</a>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "Welcome to our store! Enjoy free shipping on all orders."
+    }
+  ]
+}
+{% endschema %}
