@@ -7,7 +7,7 @@
   --rivo-color-cream: #faf2ed;
   --rivo-color-pale-yellow: #ffe5a6;
   --rivo-color-input-background: #f5f5f5;
-  --rivo-heading-font: "Bookmania WO1 Bold", serif;
+  --rivo-heading-font: "Bookmania W01 Bold", serif;
   --rivo-subheading-font: "TT Norms Regular", Arial, sans-serif;
 }
 
@@ -67,4 +67,12 @@ body {
 
 .text-dark {
   color: var(--rivo-color-text)!important;
+}
+
+.btn-primary {
+  background-color: var(--rivo-color-teal);
+  border: none;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #027c7e;
 }

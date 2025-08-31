@@ -4,9 +4,19 @@
     "tokens": {
       "type": "tokens",
       "settings": {}
+    },
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {}
     }
   },
   "order": [
-    "tokens"
+    "tokens",
+    "hero",
+    "marquee"
   ]
 }
