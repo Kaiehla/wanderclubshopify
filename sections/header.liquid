@@ -1,26 +1,11 @@
-<header class="d-flex justify-content-between align-items-center p-3">
-  {% comment %} Header Logo {% endcomment %}
-  <h2 class="header__title">
-    <a href="{{ routes.root_url }}">
-      <img src="{{ 'twc-logo.svg' | asset_url }}" alt="The Wander Club Logo" class="img-fluid" width="210" height="50">
-    </a>
-  </h2>
-
-  
-  <div class="header__menu">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
-
-
-</header>
-
+<nav>
+  {% render 'header' %}
+</nav>
 
 
 {% schema %}
 {
-  "name": "t:general.header",
+  "name": "Navigation Bar",
   "settings": [
     {
       "type": "link_list",

@@ -1,0 +1,101 @@
+<header class="container py-3">
+  <div class="row align-items-center justify-content-between">
+    <!-- Mobile: Hamburger (left), Logo (center), Cart (right) -->
+    <div class="d-flex d-md-none justify-content-between align-items-center px-0 mb-0">
+      <button class="navbar-toggler border-0 bg-transparent p-0 ms-2 text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileOffcanvasNav" aria-controls="mobileOffcanvasNav" aria-label="Toggle navigation">
+        <img src="{{ 'icon-hamburger.svg' | asset_url }}" alt="Menu" class="icon-link" width="32" height="32">
+      </button>
+      <a href="{{ routes.root_url }}" class="mx-auto">
+        <img src="{{ 'twc-logo.svg' | asset_url }}" alt="The Wander Club Logo" class="img-fluid header-logo" width="150" height="60" loading="lazy">
+      </a>
+      <a href="#" class="nav-link p-0 me-2">
+        <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart" class="icon-link" width="32" height="32">
+      </a>
+    </div>
+
+    <div class="col-auto d-none d-md-flex d-xl-none">
+      <button class="navbar-toggler border-0 bg-transparent p-0 ms-2 text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavMobile" aria-controls="navbarNavMobile" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="{{ 'icon-hamburger.svg' | asset_url }}" alt="Menu" class="icon-link" width="32" height="32">
+      </button>
+    </div>
+    <!-- Desktop: Logo (left), Nav (center), Search/User/Cart (right) -->
+    <div class="col-auto d-none d-md-flex align-items-center mb-2">
+      <a href="{{ routes.root_url }}">
+        <img src="{{ 'twc-logo.svg' | asset_url }}" alt="The Wander Club Logo" class="img-fluid mt-2 header-logo" width="210" height="100" loading="lazy">
+      </a>
+    </div>
+    <nav class="col d-none d-xl-block">
+      <ul class="nav justify-content-center gap-2 gap-md-4 flex-wrap">
+        {% for link in linklists['main-menu'].links %}
+          <li class="nav-item">
+            <a class="nav-link px-2 text-dark text-uppercase subheading fw-bold" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="col-auto d-none d-md-flex align-items-center justify-content-end">
+      <form action="#" method="get" class="d-flex align-items-center me-2">
+        <div class="input-group">
+          <input type="search" name="q" class="form-control border-0" placeholder="Search" aria-label="Search" style="background-color: #f5f5f5; width: 8em">
+          <span class="input-group-text border-0 p-2" style="background-color: #f5f5f5;">
+            <img src="{{ 'icon-search.svg' | asset_url }}" alt="Search" class="icon-link" width="24" height="24">
+          </span>
+        </div>
+      </form>
+      <a href="#" class="nav-link p-0 me-2">
+        <img src="{{ 'icon-user.svg' | asset_url }}" alt="User" class="icon-link" width="36" height="36">
+      </a>
+      <a href="#" class="nav-link p-0">
+        <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart" class="icon-link" width="36" height="36">
+      </a>
+    </div>
+  </div>
+   <!-- Mobile: Offcanvas Nav -->
+    <div class="col-12 d-block px-0">
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarNavMobile" aria-labelledby="mobileOffcanvasNavLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="mobileOffcanvasNavLabel">Menu</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav w-100 text-center">
+            {% for link in linklists['main-menu'].links %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</header>
+
+<style>
+  a.nav-link {
+    transition: color 0.2s;
+  }
+  a.nav-link:hover, a.nav-link:focus {
+    color: var(--rivo-color-teal) !important;
+  }
+  img.icon-link {
+    transition: filter 0.2s;
+    filter: invert(13%) sepia(13%) saturate(0%) hue-rotate(142deg) brightness(100%) contrast(100%);
+  }
+  img.icon-link:hover, img.icon-link:focus {
+    filter: invert(44%) sepia(99%) saturate(747%) hue-rotate(142deg) brightness(95%) contrast(92%);
+  }
+
+  .header-logo {
+    width: 210px;
+    max-width: 100%;
+    height: auto;
+  }
+  @media (max-width: 991.98px) {
+    .header-logo {
+      width: 150px;
+    }
+  }
+</style>

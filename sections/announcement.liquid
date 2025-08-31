@@ -1,19 +1,126 @@
-<div class="w-100-vw bg-primary text-white d-flex justify-content-center">
-  {{ settings.announcement_text }}
-  LABOR DAY B.O.G.O. SALE! ENDS IN: 03 DAYS 00 HRS 40 MIN 31 SEC
-   <a class="text-white fw-bold" href="#">Shop Now</a>
+<div class="text-white d-flex flex-row flex-lg-nowrap flex-lg-row-none justify-content-between justify-content-md-center align-items-center gap-2 banner" style="background-color: {{ section.settings.announcement_background_color }};">
+  <p class="col-9 col-lg-auto subheading announcement_content fw-bold mb-0 text-uppercase ls-1 text-wrap" style="overflow-wrap:break-word;word-break:break-word;">
+    {{ section.settings.announcement_content }}
+    <span class="d-block d-sm-inline"></span>
+    <span class="subheading announcement_content fw-bold text-uppercase mb-0 ls-1 countdown-timer" data-end-time="{{ section.settings.announcement_end_time }}">
+      ends in:
+      <span class="days">00</span>
+      days
+      <span class="hours">00</span>
+      hrs 
+      <span class="minutes">00</span>
+      mins
+      <span class="seconds">00</span>
+      sec
+    </span>
+  </p>
+
+  <a class="announcement_link col-3 col-lg-auto subheading fw-bolder text-uppercase justify-content-end justify-content-lg-center pe-1 d-flex" href="{{ section.settings.announcement_link }}">Shop Now</a>
 </div>
 
-{% schema %}
-{
-  "name": "Announcement Banner",
-  "settings": [
-    {
-      "type": "text",
-      "id": "announcement_text",
-      "label": "Announcement Text",
-      "default": "Welcome to our store! Enjoy free shipping on all orders."
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  var timer = document.querySelector('.countdown-timer');
+  if (!timer) return;
+  var endTime = timer.getAttribute('data-end-time');
+  if (!endTime) return;
+  // Parse date in 'Month Day, Year hh:mm:ss' format
+  var end = Date.parse(endTime);
+  if (isNaN(end)) {
+    timer.innerHTML = 'Invalid date';
+    return;
+  }
+
+  function updateCountdown() {
+    var now = new Date().getTime();
+    var distance = end - now;
+    if (distance < 0) {
+      timer.innerHTML = 'Ended';
+      return;
     }
-  ]
-}
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    timer.querySelector('.days').textContent = String(days).padStart(2, '0');
+    timer.querySelector('.hours').textContent = String(hours).padStart(2, '0');
+    timer.querySelector('.minutes').textContent = String(minutes).padStart(2, '0');
+    timer.querySelector('.seconds').textContent = String(seconds).padStart(2, '0');
+  }
+  
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+  });
+</script>
+
+<style>
+  .announcement_content {
+    color: {{ section.settings.announcement_font_color }};
+    font-size: 12px;
+    line-height: 14px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+  }
+  .announcement_link {
+    color: {{ section.settings.announcement_font_color }};
+    font-size: 12px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+    line-height: 14px;
+  }
+
+  @media (max-width: 376px) {
+    .announcement_content {
+      font-size: 9.5px;
+      line-height: 12px;
+    }
+    .announcement_link {
+      font-size: 10px;
+      line-height: 12px;
+    }
+  }
+  .banner {
+    padding: 15px 11px;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Announcement Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "announcement_content",
+        "label": "Content",
+        "default": "Labor Day B.O.G.O Sale!"
+      },
+      {
+        "type": "text",
+        "id": "announcement_end_time",
+        "label": "Countdown End Time (e.g. September 3, 2025 23:59:59)",
+        "info": "Format: August 29, 2025 14:24:00",
+        "default": "September 3, 2025 23:59:59"
+      },
+      {
+        "type": "text",
+        "id": "announcement_link",
+        "label": "Link",
+        "info": "This link will be used for the 'Shop Now' button.",
+        "default": "#"
+      },
+      {
+        "type": "color",
+        "id": "announcement_background_color",
+        "label": "Background Color",
+        "default": "#003E75"
+      }, {
+        "type": "color",
+        "id": "announcement_font_color",
+        "label": "Font Color",
+        "default": "#ffffff"
+      }
+    ]
+  }
 {% endschema %}

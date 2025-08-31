@@ -8,6 +8,14 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     >
+    {% # TT Norms Fonts %}
+    <link href="https://db.onlinewebfonts.com/c/fc1faade7b6369053ac7acf208d61f2f?family=TT Norms Italic" rel="stylesheet">    
+    <link href="https://db.onlinewebfonts.com/c/0a9712f3eaad291784d09fa62d2bb123?family=TT Norms Black" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/b6af37d5dbc3754825d5ea158ce0f29c?family=TT Norms ExtraBold" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/07bc241768c969f6b6a27a7bf0dfb490?family=TT Norms Regular" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/1dbb799579d171332c92c242730a0eb6?family=TT Norms Bold" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/6cc9926970febb2108acf12442e13d3f?family=TT Norms Medium" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/a/Nifzo0va" rel="stylesheet" type="text/css"/>
 
     {% # Inlined CSS Variables %}
     {% render 'css-variables' %}
@@ -22,14 +30,12 @@
   </head>
 
   <body>
-    {% comment %} announcement {% endcomment %}
-    {% section 'announcement' %}
 
     {% sections 'header-group' %}
 
     {{ content_for_layout }}
 
-    {% sections 'footer-group' %}
+    {% comment %} {% sections 'footer-group' %} {% endcomment %}
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

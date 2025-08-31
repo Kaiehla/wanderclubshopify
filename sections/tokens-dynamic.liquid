@@ -1,0 +1,78 @@
+<div class="container-fluid p-3 bg-light">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-2">
+      <h6 class="subheading fw-bold text-primary">Best Sellers for Over 250,000+ Wanderers Keeping Memories Alive</h6>
+    </div>
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        {% assign collection = collections[block.settings.collection] %}
+        {% if collection %}
+          <div class="col">
+            <a href="{{ collection.url }}" class="text-decoration-none">
+              <div class="card h-100 d-flex justify-content-center text-center border-0 bg-light">
+                {% if collection.image %}
+                  <img
+                    src="{{ collection.image | image_url: width: 100, height: 100, crop: 'center' }}"
+                    class="card-img-top img-fluid mx-auto d-block mb-2"
+                    alt="{{ collection.title }}"
+                    style="width: 62.5px;">
+                {% else %}
+                  <div class="card-img-top bg-light d-flex align-items-end justify-content-center mx-auto" style="height:200px; width: 100px;">
+                    <span class="text-muted">No image</span>
+                  </div>
+                {% endif %}
+                <div class="p-0 mb-0">
+                  <div class="subheading fw-bold mb-0 text-primary  text-center" style="font-size:12px;">{{ collection.title }}</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <div class="col-12">
+        <div class="alert alert-warning text-center">No collections found.</div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Tokens Collection",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Tokens Collection",
+      "blocks": [
+        {
+          "type": "collection",
+          "settings": { "collection": "countries" }
+        },
+        {
+          "type": "collection",
+          "settings": { "collection": "landmarks" }
+        },
+        {
+          "type": "collection",
+          "settings": { "collection": "experience" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
