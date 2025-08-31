@@ -43,118 +43,70 @@
     }
   }
 </style>
-  <div class="section-{{ section.id }} custom-marquee " role="region" {{ block.shopify_attributes }}>
-      {%- if section.settings.link != blank -%}
-        <a href="{{ section.settings.link }}" class="">
-      {%- endif -%}
-          <div class="track ">
-            {%- for block in section.blocks -%}
-            <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
-             <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
-                {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
+  <div class="section-{{ section.id }} custom-marquee " role="region">
+  {% assign marquee_texts = "4.9 Trust Pilot Rating|Tarnish Proof+Lifetime Guarantee|A+ BBB Rating|30-Day Returns" | split: "|" %}
+  {% assign marquee_icons = "solar_star-bold.png|solar_star-rainbow-bold.png|Better_Business_Bureau_1.png|icon-return.png" | split: "|" %}
+        {%- if section.settings.link != blank -%}
+            <a href="{{ section.settings.link }}" class="">
+        {%- endif -%}
+            <div class="track">
+            {% assign last_index = marquee_texts.size | minus: 1 %}
+            {% for i in (0..last_index) %}
               <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% if marquee_icons[i] != blank %}
+                  <img src="{{ marquee_icons[i] | asset_url }}" alt="icon" class="icon-img" loading="lazy" />
                 {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
+                {{ marquee_texts[i] }}
+              </span>
+            {% endfor %}
+            {% for i in (0..last_index) %}
               <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                   <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
-
+                {% if marquee_icons[i] != blank %}
+                  <img src="{{ marquee_icons[i] | asset_url }}" alt="icon" class="icon-img" loading="lazy" />
                 {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
-             <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
-                {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
+                {{ marquee_texts[i] }}
+              </span>
+            {% endfor %}
+            {% for i in (0..last_index) %}
               <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% if marquee_icons[i] != blank %}
+                  <img src="{{ marquee_icons[i] | asset_url }}" alt="icon" class="icon-img" loading="lazy" />
                 {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
+                {{ marquee_texts[i] }}
+              </span>
+            {% endfor %}
+            {% for i in (0..last_index) %}
               <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% if marquee_icons[i] != blank %}
+                  <img src="{{ marquee_icons[i] | asset_url }}" alt="icon" class="icon-img" loading="lazy" />
                 {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
+                {{ marquee_texts[i] }}
+              </span>
+            {% endfor %}
+            {% for i in (0..last_index) %}
               <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% if marquee_icons[i] != blank %}
+                  <img src="{{ marquee_icons[i] | asset_url }}" alt="icon" class="icon-img" loading="lazy" />
                 {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
+                {{ marquee_texts[i] }}
+              </span>
+            {% endfor %}
+            {% for i in (0..last_index) %}
               <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% if marquee_icons[i] != blank %}
+                  <img src="{{ marquee_icons[i] | asset_url }}" alt="icon" class="icon-img" loading="lazy" />
                 {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
-            {%- for block in section.blocks -%}
-              <span class="content marquee-text d-inline-flex align-items-center">
-              {% if block.settings.icon != blank %}
-                {% if block.settings.icon contains 'files/' %}
-                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
-                {% endif %}
-              {% endif %}
-              {{ block.settings.new_text | escape }}
-            </span>
-            {%- endfor -%}
+                {{ marquee_texts[i] }}
+              </span>
+            {% endfor %}
             {%- if section.settings.link != blank -%}
-              {% render 'icon-arrow' %}
+                {% render 'icon-arrow' %}
             {%- endif -%}
-          </div>
-          {%- if section.settings.link != blank -%}
-        </a>
-    {%- endif -%}
-  </div>
+            </div>
+        {%- if section.settings.link != blank -%}
+            </a>
+        {%- endif -%}
+    </div>
 {% schema %}
 {
   "name": "Marquee Text",

@@ -1,0 +1,244 @@
+<style>
+  .section-{{ section.id }}.custom-marquee {
+    display: flex;
+    align-items: center;
+    height: {{section.settings.marquee_height}}px;
+    width: 100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+    background:{{section.settings.colorBackground}}; 
+    color:{{section.settings.colorText}}; 
+    font-family: 'TT Norms Bold', sans-serif;
+    text-transform: uppercase;
+  }
+  .section-{{ section.id }}.custom-marquee a {
+    color:{{section.settings.colorText}}; 
+    text-decoration: none;
+  }
+  .section-{{ section.id }}.custom-marquee .track {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 20s linear infinite;
+  }
+  .section-{{ section.id }}.custom-marquee .content {
+    margin-left: 40px;
+    font-size: {{section.settings.font_size}}px;
+  }
+  .section-{{ section.id }}.custom-marquee .icon-img {
+    width: {{ section.settings.icon_size | default: 24 }}px;
+    height: {{ section.settings.icon_size | default: 24 }}px;
+    object-fit: contain;
+    margin-right: 0.5em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-20%);
+    }
+  }
+</style>
+  <div class="section-{{ section.id }} custom-marquee " role="region" {{ block.shopify_attributes }}>
+      {%- if section.settings.link != blank -%}
+        <a href="{{ section.settings.link }}" class="">
+      {%- endif -%}
+          <div class="track ">
+            {%- for block in section.blocks -%}
+            <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+             <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                   <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+             <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <span class="content marquee-text d-inline-flex align-items-center">
+              {% if block.settings.icon != blank %}
+                {% if block.settings.icon contains 'files/' %}
+                  <img src="{{ block.settings.icon |  image_url: width:24 }}" alt="icon" class="icon-img" loading="lazy" />
+                {% endif %}
+              {% endif %}
+              {{ block.settings.new_text | escape }}
+            </span>
+            {%- endfor -%}
+            {%- if section.settings.link != blank -%}
+              {% render 'icon-arrow' %}
+            {%- endif -%}
+          </div>
+          {%- if section.settings.link != blank -%}
+        </a>
+    {%- endif -%}
+  </div>
+{% schema %}
+{
+  "name": "Marquee (Dynamic)",
+  "settings": [
+    {
+      "type": "color",
+      "id": "colorBackground",
+      "label": "Background color",
+      "default": "#F0F4FA"
+    },
+    {
+      "type": "color",
+      "id": "colorText",
+      "label": "Text color",
+      "default": "#003e75"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "range",
+      "id": "marquee_height",
+      "min": 24,
+      "max": 200,
+      "step": 2,
+      "default": 46,
+      "label": "Marquee height"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 8,
+      "max": 100,
+      "step": 2,
+      "default": 16,
+      "label": "Font size"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "default": 16,
+      "label": "Icon size (px)"
+    }
+  ],
+    "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 20,
+      "settings": [
+         {
+          "type": "text",
+          "id": "new_text",
+          "default": "Welcome to store",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (24x24)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee (Dynamic)",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
